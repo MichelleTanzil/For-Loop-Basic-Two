@@ -103,11 +103,18 @@ ultimate_analysis([37,2,1,-9])
 # Example: ultimate_analysis([37,2,1,-9]) should return {'sumTotal': 31, 'average': 7.75, 'minimum': -9, 'maximum': 37, 'length': 4 }
 
 # Reverse List - Create a function that takes a list and return that list with values reversed. Do this without creating a second list. (This challenge is known to appear during basic technical interviews.)
-def reverse_list(list):
-    for i in range(0, int(len(list)/2)):
-        temp = list[i]
-        list[i] = list[len(list) - i - 1]
-        list[len(list) - i - 1] = temp
-    return list
-reverse_list([37,2,1,-9])
+def reverse_list(li):
+    for i in range(0, int(len(li)/2)):
+        # first solution
+        # temp = li[i]
+        # li[i] = li[len(li) - i - 1]
+        # li[len(li) - i - 1] = temp
+
+        # second solution
+        temp = len(li) - 1 - i
+        li[i], li[temp] = li[temp], li[i]
+    return li
+
+print(reverse_list([37,2,1,-9]))
+print(reverse_list([37,2,1,-9,8,10,12,14,16,18]))
 # Example: reverse_list([37,2,1,-9]) should return [-9,1,2,37]
